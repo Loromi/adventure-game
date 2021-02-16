@@ -25,7 +25,11 @@ while True:
     print_sleep("Enter 2 to peer into the cave.")
     first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
     if first_path == '1':
-        #approach house
+        print_sleep("You approach the door of the house.")
+        print_sleep("You are about to knock when the door opens and out steps a "
+                    + enemy)
+        print_sleep("Eep! This is the " + enemy + "'s house!")
+        print_sleep("The " + enemy + " attacks you!")
         break
     elif first_path == '2':
         #approach cave
