@@ -87,15 +87,17 @@ while True:
         enemy_encounter = input("Would you like to (1) fight or (2) run away?")
         if enemy_encounter == '1':
             attack = random.randint(80, 120) * weapon.strength
+            print(attack)
+            time.sleep()
             if attack <= enemy.defense:
                 print_sleep("You do your best...")
-                print_sleep("but your dagger is no match for the wicked fairie.")
+                print_sleep(f"but your {weapon.name} is no match for the {enemy.name}.")
                 print_sleep("You have been defeated!")
             else: 
-                print_sleep("As the dragon moves to attack, you unsheath your new sword.")
-                print_sleep("The Sword of Ogoroth shines brightly in your hand as you brace yourself for the attack.")
-                print_sleep("But the dragon takes one look at your shiny new toy and runs away!")
-                print_sleep("You have rid the town of the dragon. You are victorious!")
+                print_sleep(f"As the {enemy.name} moves to attack, you unsheath your new sword.")
+                print_sleep(f"{weapon.name} shines brightly in your hand as you brace yourself for the attack.")
+                print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
+                print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
                 break
         elif enemy_encounter == '2':
             break
