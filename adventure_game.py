@@ -48,6 +48,7 @@ def print_sleep(message_to_print):
 
 
 #intro
+weaponery.append(dagger)
 print_sleep("You find yourself standing in an open field, "
             "filled with grass and yellow wildflowers.")
 print_sleep("Rumor has it that a " +
@@ -56,6 +57,7 @@ print_sleep("Rumor has it that a " +
 print_sleep("In front of you is a house.")
 print_sleep("To your right is a dark cave.")
 print_sleep("In your hand you hold your trusty (but not very effective) dagger.")
+
 
 #first choice
 while True:
