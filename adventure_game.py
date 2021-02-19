@@ -86,4 +86,6 @@ while True:
         break
     elif first_path == '2':
         #approach cave
+        weaponery.replace_substring(dagger, dagger, magic_sword)
+        print_sleep(weaponery.name)
         break
