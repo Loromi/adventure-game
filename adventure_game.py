@@ -39,8 +39,6 @@ enemy = random.choice(enemies)
 dagger = Weapon('dagger', 9)
 magic_sword = Weapon('magical Sword of Orgoroth', 15)
 
-weaponery = []
-
 
 def print_sleep(message_to_print):
     print(message_to_print)
@@ -61,7 +59,7 @@ def replace_substring(string, substring, replacement):
 
 
 #intro
-weaponery.append(dagger)
+weapon = dagger
 print_sleep("You find yourself standing in an open field, "
             "filled with grass and yellow wildflowers.")
 print_sleep("Rumor has it that a " +
@@ -92,6 +90,6 @@ while True:
         print_sleep("You have found the magical Sword of Ogoroth!")
         print_sleep("You discard your silly old dagger and take the sword with you.")
         print_sleep("You walk back out to the field.")
-        # replace_substring(weaponery, dagger, magic_sword)
-        print_sleep(weaponery.name)
+        replace_substring(weapon, dagger, magic_sword)
+        print_sleep(weapon)
         break
