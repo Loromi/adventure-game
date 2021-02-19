@@ -3,7 +3,7 @@ import random
 
 inventory = ['dagger']
 
-enemies = ['dragon', 'troll', 'wicked fairie', 'gorgon']
+# enemies = ['dragon', 'troll', 'wicked fairie', 'gorgon']
 
 class Enemy:
 
@@ -11,6 +11,12 @@ class Enemy:
         self.name = name
         self.defense = defense
 
+dragon = Enemy('dragon', 1200)
+troll = Enemy('troll', 1050)
+fairie = Enemy('wicked fairie', 950)
+gorgon = Enemy('gorgon', 850)
+
+enemies = [dragon, troll, fairie, gorgon]
 
 def print_sleep(message_to_print):
     print(message_to_print)
@@ -22,7 +28,7 @@ enemy = random.choice(enemies)
 print_sleep("You find yourself standing in an open field, "
             "filled with grass and yellow wildflowers.")
 print_sleep("Rumor has it that a " +
-            enemy + 
+            str(enemy) + 
             " is somewhere around here, and has been terrifying the nearby village.")
 print_sleep("In front of you is a house.")
 print_sleep("To your right is a dark cave.")
