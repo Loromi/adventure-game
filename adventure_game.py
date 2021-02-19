@@ -1,7 +1,7 @@
 import time
 import random
 
-inventory = ['dagger']
+# inventory = ['dagger']
 
 # enemies = ['dragon', 'troll', 'wicked fairie', 'gorgon']
 
@@ -14,7 +14,7 @@ class Enemy:
     def __init__(self, name, defense):
         self.name = name
         self.defense = defense
-        
+
 
 class Weapon:
 
@@ -32,8 +32,12 @@ troll = Enemy('troll', 1050)
 fairie = Enemy('wicked fairie', 950)
 gorgon = Enemy('gorgon', 850)
 
-
 enemies = [dragon, troll, fairie, gorgon]
+
+dagger = Weapon('dagger', 9)
+magic_sword = Weapon('magical Sword of Orgoroth', 15)
+
+weaponery = []
 
 
 def print_sleep(message_to_print):
