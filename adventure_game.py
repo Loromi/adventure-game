@@ -98,7 +98,7 @@ while True:
                 print_sleep("You have rid the town of the dragon. You are victorious!")
                 break
         elif enemy_encounter == '2':
-        break
+            break
     elif first_path == '2':
         #approach cave
         print_sleep("You peer cautiously into the cave.")
