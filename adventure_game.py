@@ -88,8 +88,7 @@ while True:
         print_sleep("It turns out to be only a very small cave.")
         print_sleep("Your eye catches a glint of metal behind a rock.")
         print_sleep("You have found the magical Sword of Ogoroth!")
+        weapon = magic_sword
         print_sleep("You discard your silly old dagger and take the sword with you.")
         print_sleep("You walk back out to the field.")
-        replace_substring(weapon, dagger, magic_sword)
-        print_sleep(weapon)
         break
