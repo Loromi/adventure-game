@@ -86,6 +86,12 @@ while True:
         break
     elif first_path == '2':
         #approach cave
+        print_sleep("You peer cautiously into the cave.")
+        print_sleep("It turns out to be only a very small cave.")
+        print_sleep("Your eye catches a glint of metal behind a rock.")
+        print_sleep("You have found the magical Sword of Ogoroth!")
+        print_sleep("You discard your silly old dagger and take the sword with you.")
+        print_sleep("You walk back out to the field.")
         weaponery.replace_substring(dagger, dagger, magic_sword)
         print_sleep(weaponery.name)
         break
