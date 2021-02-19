@@ -14,6 +14,17 @@ class Enemy:
     def __init__(self, name, defense):
         self.name = name
         self.defense = defense
+        
+
+class Weapon:
+
+    name = str
+
+    strength = int
+
+    def __init__(self, name, strength):
+        self.name = name
+        self.strength = strength
 
 
 dragon = Enemy('dragon', 1200)
@@ -49,9 +60,9 @@ while True:
     if first_path == '1':
         print_sleep("You approach the door of the house.")
         print_sleep("You are about to knock when the door opens and out steps a "
-                    + enemy)
-        print_sleep("Eep! This is the " + enemy + "'s house!")
-        print_sleep("The " + enemy + " attacks you!")
+                    + enemy.name)
+        print_sleep("Eep! This is the " + enemy.name + "'s house!")
+        print_sleep("The " + enemy.name + " attacks you!")
         break
     elif first_path == '2':
         #approach cave
