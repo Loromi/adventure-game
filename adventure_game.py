@@ -34,6 +34,8 @@ gorgon = Enemy('gorgon', 850)
 
 enemies = [dragon, troll, fairie, gorgon]
 
+enemy = random.choice(enemies)
+
 dagger = Weapon('dagger', 9)
 magic_sword = Weapon('magical Sword of Orgoroth', 15)
 
@@ -44,7 +46,6 @@ def print_sleep(message_to_print):
     print(message_to_print)
     time.sleep(1+1/2)
 
-enemy = random.choice(enemies)
 
 #intro
 print_sleep("You find yourself standing in an open field, "
