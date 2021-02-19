@@ -5,6 +5,13 @@ inventory = ['dagger']
 
 enemies = ['dragon', 'troll', 'wicked fairie', 'gorgon']
 
+class Enemy:
+
+    def __init__(self, name, defense):
+        self.name = name
+        self.defense = defense
+
+
 def print_sleep(message_to_print):
     print(message_to_print)
     time.sleep(1+1/2)
