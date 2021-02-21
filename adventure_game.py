@@ -42,7 +42,7 @@ magic_sword = Weapon('magical Sword of Orgoroth', 15)
 
 def print_sleep(message_to_print):
     print(message_to_print)
-    time.sleep(1+1/2)
+    time.sleep(3/2)
 
 
 def replace_substring(string, substring, replacement):
@@ -93,16 +93,17 @@ while True:
                 print_sleep("You do your best...")
                 print_sleep(f"but your {weapon.name} is no match for the {enemy.name}.")
                 print_sleep("You have been defeated!")
+                #play_again
             else: 
                 print_sleep(f"As the {enemy.name} moves to attack, you unsheath your {weapon.name}.")
                 print_sleep(f"{weapon.name} shines brightly in your hand as you brace yourself for the attack.")
                 print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
                 print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
-                break
+                #play_again
         elif enemy_encounter == '2':
-            break
+            print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
+            #game_path
     elif first_path == '2':
-        #approach cave
         print_sleep("You peer cautiously into the cave.")
         print_sleep("It turns out to be only a very small cave.")
         print_sleep("Your eye catches a glint of metal behind a rock.")
@@ -110,4 +111,5 @@ while True:
         weapon = magic_sword
         print_sleep("You discard your silly old dagger and take the sword with you.")
         print_sleep("You walk back out to the field.")
+        #game_path
 
