@@ -58,17 +58,31 @@ def fight():
         print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
         print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
     # play_again()
+            
+
+def cave():    
+    print_sleep("You peer cautiously into the cave.")
+    if weapon != magic_sword:
+        print_sleep("It turns out to be only a very small cave.")
+        print_sleep("Your eye catches a glint of metal behind a rock.")
+        print_sleep("You have found the magical Sword of Ogoroth!")
+        print_sleep("You discard your silly old dagger and take the sword with you.")
+        weapon = magic_sword
+    else:
+        print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
+    print_sleep("You walk back out to the field.")
+    # game_path()
 
 
 def play_again():    
     play_again=input("Would you like to play again? (y/n)")
-        if play_again == 'n':
-            print_sleep("Thanks for playing! See you next time.")
-        elif play_again == 'y':
-            print_sleep("< play_again() >")
-            #play_game()
-        else:
-            play_again=input("Would you like to play again? (y/n)") 
+    if play_again == 'n':
+        print_sleep("Thanks for playing! See you next time.")
+    elif play_again == 'y':
+        print_sleep("< play_again() >")
+        # play_game()
+    else:
+        play_again=input("Would you like to play again? (y/n)") 
 
 
 #intro
