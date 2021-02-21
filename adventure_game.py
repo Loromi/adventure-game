@@ -85,24 +85,26 @@ while True:
             print_sleep("You feel a bit under-prepared for this, what with only "
                         "having a tiny dagger.")
         enemy_encounter = input("Would you like to (1) fight or (2) run away?")
-        if enemy_encounter == '1':
-            attack = random.randint(80, 120) * weapon.strength
-            print(str(attack))
-            time.sleep(5)
-            if attack <= enemy.defense:
-                print_sleep("You do your best...")
-                print_sleep(f"but your {weapon.name} is no match for the {enemy.name}.")
-                print_sleep("You have been defeated!")
-                #play_again
-            else: 
-                print_sleep(f"As the {enemy.name} moves to attack, you unsheath your {weapon.name}.")
-                print_sleep(f"The {weapon.name} shines brightly in your hand as you brace yourself for the attack.")
-                print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
-                print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
-                #play_again
-        elif enemy_encounter == '2':
-            print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
-            #game_path
+        while play_again != '2' and play_again != '1':
+            if enemy_encounter == '1':
+                attack = random.randint(80, 120) * weapon.strength
+                print(str(attack))
+                time.sleep(5)
+                if attack <= enemy.defense:
+                    print_sleep("You do your best...")
+                    print_sleep(f"but your {weapon.name} is no match for the {enemy.name}.")
+                    print_sleep("You have been defeated!")
+                    #play_again
+                else: 
+                    print_sleep(f"As the {enemy.name} moves to attack, you unsheath your {weapon.name}.")
+                    print_sleep(f"The {weapon.name} shines brightly in your hand as you brace yourself for the attack.")
+                    print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
+                    print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
+                    #play_again
+            elif enemy_encounter == '2':
+                print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
+                #game_path
+            enemy_encounter = input("Would you like to (1) fight or (2) run away?")
     elif first_path == '2':
         print_sleep("You peer cautiously into the cave.")
         if weapon != magic_sword:
