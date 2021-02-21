@@ -74,7 +74,7 @@ while True:
                 print_sleep("You feel a bit under-prepared for this, what with only "
                             "having a tiny dagger.")
             enemy_encounter = input("Would you like to (1) fight or (2) run away?")
-            if enemy_encounter != '2' or enemy_encounter != '1':
+            if enemy_encounter == '2' or enemy_encounter == '1':
                 if enemy_encounter == '1':
                     attack = random.randint(80, 120) * weapon.strength
                     print(str(attack))
