@@ -58,10 +58,11 @@ print_sleep("In your hand you hold your trusty (but not very effective) dagger.\
 
 
 #first choice
-while True:
+
     print_sleep("Enter 1 to knock on the door of the house.")
     print_sleep("Enter 2 to peer into the cave.")
     first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
+while True:    
     while first_path != '1' and first_path != '2':
         if first_path == '1':       
             print_sleep("You approach the door of the house.")
@@ -105,14 +106,15 @@ while True:
                 print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
             print_sleep("You walk back out to the field.")
             #game_path
-        first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
-    play_again=input("Would you like to play again? (y/n)")
-    while play_again != 'n' and play_again != 'y': 
-        if play_again == 'n':
-            print_sleep("Thanks for playing! See you next time.")
-            break
-        elif play_again == 'y':
-            print_sleep("< play_again() >")
-            #play_game()
-        play_again=input("Would you like to play again? (y/n)") 
+    first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
+
+    # play_again=input("Would you like to play again? (y/n)")
+    # while play_again != 'n' and play_again != 'y': 
+    #     if play_again == 'n':
+    #         print_sleep("Thanks for playing! See you next time.")
+    #         break
+    #     elif play_again == 'y':
+    #         print_sleep("< play_again() >")
+    #         #play_game()
+    #     play_again=input("Would you like to play again? (y/n)") 
            
