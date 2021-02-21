@@ -96,7 +96,7 @@ while True:
                 #play_again
             else: 
                 print_sleep(f"As the {enemy.name} moves to attack, you unsheath your {weapon.name}.")
-                print_sleep(f"{weapon.name} shines brightly in your hand as you brace yourself for the attack.")
+                print_sleep(f"The {weapon.name} shines brightly in your hand as you brace yourself for the attack.")
                 print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
                 print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
                 #play_again
