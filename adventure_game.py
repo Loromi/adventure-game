@@ -115,6 +115,8 @@ while True:
             print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
         print_sleep("You walk back out to the field.")
         #game_path
+    else:
+        first_path
     play_again=input("Would you like to play again? (y/n)")
     if play_again == "n":
         print_sleep("Thanks for playing! See you next time.")
