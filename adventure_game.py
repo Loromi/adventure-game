@@ -105,11 +105,14 @@ while True:
             #game_path
     elif first_path == '2':
         print_sleep("You peer cautiously into the cave.")
-        print_sleep("It turns out to be only a very small cave.")
-        print_sleep("Your eye catches a glint of metal behind a rock.")
-        print_sleep("You have found the magical Sword of Ogoroth!")
-        weapon = magic_sword
-        print_sleep("You discard your silly old dagger and take the sword with you.")
+        if weapon != magic_sword:
+            print_sleep("It turns out to be only a very small cave.")
+            print_sleep("Your eye catches a glint of metal behind a rock.")
+            print_sleep("You have found the magical Sword of Ogoroth!")
+            print_sleep("You discard your silly old dagger and take the sword with you.")
+            weapon = magic_sword
+        else:
+            print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
         print_sleep("You walk back out to the field.")
         #game_path
 
