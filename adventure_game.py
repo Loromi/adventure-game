@@ -1,9 +1,6 @@
 import time
 import random
 
-# inventory = ['dagger']
-
-# enemies = ['dragon', 'troll', 'wicked fairie', 'gorgon']
 
 class Enemy:
 
@@ -14,6 +11,16 @@ class Enemy:
     def __init__(self, name, defense):
         self.name = name
         self.defense = defense
+
+
+dragon = Enemy('dragon', 1200)
+troll = Enemy('troll', 1050)
+fairie = Enemy('wicked fairie', 950)
+gorgon = Enemy('gorgon', 850)
+
+enemies = [dragon, troll, fairie, gorgon]
+
+enemy = random.choice(enemies)
 
 
 class Weapon:
@@ -27,17 +34,22 @@ class Weapon:
         self.strength = strength
 
 
-dragon = Enemy('dragon', 1200)
-troll = Enemy('troll', 1050)
-fairie = Enemy('wicked fairie', 950)
-gorgon = Enemy('gorgon', 850)
-
-enemies = [dragon, troll, fairie, gorgon]
-
-enemy = random.choice(enemies)
-
 dagger = Weapon('dagger', 9)
 magic_sword = Weapon('magical Sword of Orgoroth', 15)
+
+weapon = dagger
+
+
+def intro():
+    enemy = random.choice(enemies)
+    print_sleep("You find yourself standing in an open field, "
+                "filled with grass and yellow wildflowers.")
+    print_sleep("Rumor has it that a " +
+                enemy.name + 
+                " is somewhere around here, and has been terrifying the nearby village.")
+    print_sleep("In front of you is a house.")
+    print_sleep("To your right is a dark cave.")
+    print_sleep("In your hand you hold your trusty (but not very effective) dagger.\n")
 
 
 def print_sleep(message_to_print):
@@ -57,8 +69,28 @@ def fight():
         print_sleep(f"The {weapon.name} shines brightly in your hand as you brace yourself for the attack.")
         print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
         print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
-    # play_again()
-            
+    play_again()
+
+
+def game_path():
+    print_sleep("Enter 1 to knock on the door of the house.")
+    print_sleep("Enter 2 to peer into the cave.")
+    path = input("What would you like to do?\n(Please enter 1 or 2.)\n")    
+    if path == '1':       
+        doorknock()
+    elif path == '2':
+        cave()
+    game_path()
+
+
+def doorknock():
+    print_sleep("You approach the door of the house.")
+    print_sleep("You are about to knock when the door opens and out steps a "
+                + enemy.name)
+    print_sleep("Eep! This is the " + enemy.name + "'s house!")
+    print_sleep("The " + enemy.name + " attacks you!")
+    meet_enemy()
+
 
 def cave():    
     print_sleep("You peer cautiously into the cave.")
@@ -75,75 +107,37 @@ def cave():
 
 
 def play_again():    
-    play_again=input("Would you like to play again? (y/n)")
-    if play_again == 'n':
+    again = input("Would you like to play again? (y/n)")
+    if again == 'n':
         print_sleep("Thanks for playing! See you next time.")
-    elif play_again == 'y':
+    elif again == 'y':
         print_sleep("< play_again() >")
         # play_game()
-    else:
-        play_again=input("Would you like to play again? (y/n)") 
+    play_again() 
 
 
-#intro
-weapon = dagger
-print_sleep("You find yourself standing in an open field, "
-            "filled with grass and yellow wildflowers.")
-print_sleep("Rumor has it that a " +
-            enemy.name + 
-            " is somewhere around here, and has been terrifying the nearby village.")
-print_sleep("In front of you is a house.")
-print_sleep("To your right is a dark cave.")
-print_sleep("In your hand you hold your trusty (but not very effective) dagger.\n")
+def strength_check():
+    if weapon.strength < 10:
+        print_sleep("You feel a bit under-prepared for this, what with only "
+                    f"having a tiny {weapon.name}.")
 
 
-#first choice
+def meet_enemy():
+    strength_check()
+    enemy_encounter = input("Would you like to (1) fight or (2) run away?")
+    if enemy_encounter == '1':
+        fight()
+    elif enemy_encounter == '2':
+        print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
+        game_path()
+    meet_enemy()
 
-print_sleep("Enter 1 to knock on the door of the house.")
-print_sleep("Enter 2 to peer into the cave.")
-first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
-while True:    
-    if first_path == '1' or first_path == '2':
-        if first_path == '1':       
-            print_sleep("You approach the door of the house.")
-            print_sleep("You are about to knock when the door opens and out steps a "
-                        + enemy.name)
-            print_sleep("Eep! This is the " + enemy.name + "'s house!")
-            print_sleep("The " + enemy.name + " attacks you!")
-            if weapon == dagger:
-                print_sleep("You feel a bit under-prepared for this, what with only "
-                            "having a tiny dagger.")
-            enemy_encounter = input("Would you like to (1) fight or (2) run away?")
-            if enemy_encounter == '2' or enemy_encounter == '1':
-                if enemy_encounter == '1':
-                    fight()
-                elif enemy_encounter == '2':
-                    print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
-                    #game_path
-            else:    
-                enemy_encounter = input("Would you like to (1) fight or (2) run away?")
-        elif first_path == '2':
-            print_sleep("You peer cautiously into the cave.")
-            if weapon != magic_sword:
-                print_sleep("It turns out to be only a very small cave.")
-                print_sleep("Your eye catches a glint of metal behind a rock.")
-                print_sleep("You have found the magical Sword of Ogoroth!")
-                print_sleep("You discard your silly old dagger and take the sword with you.")
-                weapon = magic_sword
-            else:
-                print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
-            print_sleep("You walk back out to the field.")
-            #game_path
-    else:
-        first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
 
-    play_again=input("Would you like to play again? (y/n)")
-    while play_again != 'n' and play_again != 'y': 
-        if play_again == 'n':
-            print_sleep("Thanks for playing! See you next time.")
-            break
-        elif play_again == 'y':
-            print_sleep("< play_again() >")
-            #play_game()
-        play_again=input("Would you like to play again? (y/n)") 
+def game():
+    intro()
+    game_path()
+    play_again()
+
+
+game()
            
