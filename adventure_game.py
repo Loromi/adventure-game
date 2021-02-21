@@ -93,6 +93,7 @@ while True:
                 elif enemy_encounter == '2':
                     print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
                     #game_path
+            else:    
                 enemy_encounter = input("Would you like to (1) fight or (2) run away?")
         elif first_path == '2':
             print_sleep("You peer cautiously into the cave.")
@@ -106,7 +107,8 @@ while True:
                 print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
             print_sleep("You walk back out to the field.")
             #game_path
-    first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
+    else:
+        first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
 
     # play_again=input("Would you like to play again? (y/n)")
     # while play_again != 'n' and play_again != 'y': 
