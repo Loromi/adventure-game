@@ -63,7 +63,7 @@ print_sleep("Enter 1 to knock on the door of the house.")
 print_sleep("Enter 2 to peer into the cave.")
 first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
 while True:    
-    while first_path != '1' and first_path != '2':
+    if first_path == '1' or first_path == '2':
         if first_path == '1':       
             print_sleep("You approach the door of the house.")
             print_sleep("You are about to knock when the door opens and out steps a "
@@ -74,7 +74,7 @@ while True:
                 print_sleep("You feel a bit under-prepared for this, what with only "
                             "having a tiny dagger.")
             enemy_encounter = input("Would you like to (1) fight or (2) run away?")
-            while play_again != '2' and play_again != '1':
+            if enemy_encounter != '2' or enemy_encounter != '1':
                 if enemy_encounter == '1':
                     attack = random.randint(80, 120) * weapon.strength
                     print(str(attack))
