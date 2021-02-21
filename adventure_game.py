@@ -117,13 +117,13 @@ while True:
         #game_path
     else:
         first_path
-    # play_again=input("Would you like to play again? (y/n)")
-    while play_again != 'n' and play_again != 'y':
-        play_again=input("Would you like to play again? (y/n)") 
+    play_again=input("Would you like to play again? (y/n)")
+    while play_again != 'n' and play_again != 'y': 
         if play_again == 'n':
             print_sleep("Thanks for playing! See you next time.")
             break
         elif play_again == 'y':
             print_sleep("< play_again() >")
             #play_game()
+        play_again=input("Would you like to play again? (y/n)") 
            
