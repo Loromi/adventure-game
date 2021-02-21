@@ -120,7 +120,7 @@ while True:
         print_sleep("Thanks for playing! See you next time.")
         break
     elif play_again == "y":
-        print_sleep("< play_again() >"
+        print_sleep("< play_again() >")
         #play_game()
     else:
         play_again
