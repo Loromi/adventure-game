@@ -44,6 +44,7 @@ def print_sleep(message_to_print):
     print(message_to_print)
     time.sleep(3/2)
 
+
 def fight():
     attack = random.randint(80, 120) * weapon.strength
     print(str(attack))
@@ -57,6 +58,17 @@ def fight():
         print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
         print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
     # play_again()
+
+
+def play_again():    
+    play_again=input("Would you like to play again? (y/n)")
+        if play_again == 'n':
+            print_sleep("Thanks for playing! See you next time.")
+        elif play_again == 'y':
+            print_sleep("< play_again() >")
+            #play_game()
+        else:
+            play_again=input("Would you like to play again? (y/n)") 
 
 
 #intro
@@ -111,13 +123,13 @@ while True:
     else:
         first_path = input("What would you like to do?\n(Please enter 1 or 2.)\n")
 
-    # play_again=input("Would you like to play again? (y/n)")
-    # while play_again != 'n' and play_again != 'y': 
-    #     if play_again == 'n':
-    #         print_sleep("Thanks for playing! See you next time.")
-    #         break
-    #     elif play_again == 'y':
-    #         print_sleep("< play_again() >")
-    #         #play_game()
-    #     play_again=input("Would you like to play again? (y/n)") 
+    play_again=input("Would you like to play again? (y/n)")
+    while play_again != 'n' and play_again != 'y': 
+        if play_again == 'n':
+            print_sleep("Thanks for playing! See you next time.")
+            break
+        elif play_again == 'y':
+            print_sleep("< play_again() >")
+            #play_game()
+        play_again=input("Would you like to play again? (y/n)") 
            
