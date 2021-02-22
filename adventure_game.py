@@ -112,9 +112,9 @@ def play_again():
     if again == 'n':
         print_sleep("Thanks for playing! See you next time.")
     elif again == 'y':
-        print_sleep("< play_again() >")
-        # play_game()
-    play_again() 
+        game()
+    else:    
+        play_again() 
 
 
 def strength_check():
