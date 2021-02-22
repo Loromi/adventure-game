@@ -41,8 +41,8 @@ weapon = dagger
 
 
 def intro():
-    enemy = random.choice(enemies)
-    weapon = dagger
+    # enemy = random.choice(enemies)
+    # weapon = dagger
     print_sleep("You find yourself standing in an open field, "
                 "filled with grass and yellow wildflowers.")
     print_sleep("Rumor has it that a " +
@@ -134,11 +134,13 @@ def meet_enemy():
     meet_enemy()
 
 
-def game():
+def main():
+    enemy = random.choice(enemies)
+    weapon = dagger
     intro()
     game_path()
     play_again()
 
 
-game()
+main()
            
