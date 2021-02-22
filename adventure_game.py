@@ -73,15 +73,15 @@ def fight():
     play_again()
 
 
-def game_path():
+def select_path():
     print_sleep("Enter 1 to knock on the door of the house.")
     print_sleep("Enter 2 to peer into the cave.")
     path = input("What would you like to do?\n(Please enter 1 or 2.)\n")    
     if path == '1':       
         doorknock()
     elif path == '2':
-        cave()
-    game_path()
+        cave(weapon)
+    select_path()
 
 
 def doorknock():
@@ -104,7 +104,6 @@ def cave(weapon: Weapon):
     else:
         print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
     print_sleep("You walk back out to the field.")
-    # game_path()
 
 
 def play_again():    
@@ -138,7 +137,7 @@ def main():
     enemy = random.choice(enemies)
     weapon = dagger
     intro()
-    game_path()
+    select_path()
     play_again()
 
 
