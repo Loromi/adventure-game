@@ -42,6 +42,7 @@ weapon = dagger
 
 def intro():
     enemy = random.choice(enemies)
+    weapon = dagger
     print_sleep("You find yourself standing in an open field, "
                 "filled with grass and yellow wildflowers.")
     print_sleep("Rumor has it that a " +
