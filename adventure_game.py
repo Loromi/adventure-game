@@ -93,7 +93,7 @@ def doorknock():
     meet_enemy()
 
 
-def cave():    
+def cave(weapon: Weapon):    
     print_sleep("You peer cautiously into the cave.")
     if weapon != magic_sword:
         print_sleep("It turns out to be only a very small cave.")
