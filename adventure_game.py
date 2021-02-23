@@ -65,12 +65,13 @@ def fight():
         print_sleep("You do your best...")
         print_sleep(f"but your {weapon.name} is no match for the {enemy.name}.")
         print_sleep("You have been defeated!")
-    else: 
+    elif attack > enemy.defense:
         print_sleep(f"As the {enemy.name} moves to attack, you unsheath your {weapon.name}.")
         print_sleep(f"The {weapon.name} shines brightly in your hand as you brace yourself for the attack.")
         print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
         print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
-    play_again()
+    else:
+        play_again()
 
 
 def select_path():
@@ -81,7 +82,8 @@ def select_path():
         doorknock()
     elif path == '2':
         cave(weapon)
-    select_path()
+    else:    
+        select_path()
 
 
 def doorknock():
@@ -104,6 +106,7 @@ def cave(weapon: Weapon):
     else:
         print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
     print_sleep("You walk back out to the field.")
+    return weapon
 
 
 def play_again():    
@@ -111,7 +114,7 @@ def play_again():
     if again == 'n':
         print_sleep("Thanks for playing! See you next time.")
     elif again == 'y':
-        game()
+        main()
     else:    
         play_again() 
 
@@ -129,11 +132,12 @@ def meet_enemy():
         fight()
     elif enemy_encounter == '2':
         print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
-        game_path()
-    meet_enemy()
+        select_path()
+    else:    
+        meet_enemy()
 
 
-def main():
+def main(enemy: Enemy, weapon: Weapon):
     enemy = random.choice(enemies)
     weapon = dagger
     intro()
@@ -141,5 +145,5 @@ def main():
     play_again()
 
 
-main()
+main(enemy, weapon)
            
