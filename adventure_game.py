@@ -55,10 +55,10 @@ def intro():
 
 def print_sleep(message_to_print):
     print(message_to_print)
-    time.sleep(3/2)
+    time.sleep(1/20)
 
 
-def fight():
+def fight(weapon: Weapon):
     attack = random.randint(80, 120) * weapon.strength
     print(str(attack))
     if attack <= enemy.defense:
@@ -74,7 +74,7 @@ def fight():
         play_again()
 
 
-def select_path():
+def select_path(weapon: Weapon):
     print_sleep("Enter 1 to knock on the door of the house.")
     print_sleep("Enter 2 to peer into the cave.")
     path = input("What would you like to do?\n(Please enter 1 or 2.)\n")    
@@ -83,7 +83,7 @@ def select_path():
     elif path == '2':
         cave(weapon)
     else:    
-        select_path()
+        select_path(weapon)
 
 
 def doorknock():
@@ -92,7 +92,7 @@ def doorknock():
                 + enemy.name)
     print_sleep("Eep! This is the " + enemy.name + "'s house!")
     print_sleep("The " + enemy.name + " attacks you!")
-    meet_enemy()
+    meet_enemy(weapon)
 
 
 def cave(weapon: Weapon):    
@@ -103,12 +103,11 @@ def cave(weapon: Weapon):
         print_sleep("You have found the magical Sword of Ogoroth!")
         print_sleep("You discard your silly old dagger and take the sword with you.")
         weapon = magic_sword
+        # return weapon
     else:
         print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
     print_sleep("You walk back out to the field.")
-    select_path()
-    return weapon
-    
+    select_path(weapon)
 
 
 def play_again():    
@@ -116,34 +115,34 @@ def play_again():
     if again == 'n':
         print_sleep("Thanks for playing! See you next time.")
     elif again == 'y':
-        main()
+        main(weapon, enemy)
     else:    
         play_again() 
 
 
-def strength_check():
+def strength_check(weapon: Weapon):
     if weapon.strength < 10:
         print_sleep("You feel a bit under-prepared for this, what with only "
                     f"having a tiny {weapon.name}.")
 
 
-def meet_enemy():
-    strength_check()
+def meet_enemy(weapon: Weapon):
+    strength_check(weapon)
     enemy_encounter = input("Would you like to (1) fight or (2) run away?")
     if enemy_encounter == '1':
-        fight()
+        fight(weapon)
     elif enemy_encounter == '2':
         print_sleep("You run back into the field. Luckily, you don't seem to have been followed.")
-        select_path()
+        select_path(weapon)
     else:    
-        meet_enemy()
+        meet_enemy(weapon)
 
 
 def main(enemy: Enemy, weapon: Weapon):
-    enemy = random.choice(enemies)
-    weapon = dagger
+    # enemy = random.choice(enemies)
+    # weapon = dagger
     intro()
-    select_path()
+    select_path(weapon)
     play_again()
 
 
