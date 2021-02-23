@@ -106,7 +106,9 @@ def cave(weapon: Weapon):
     else:
         print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
     print_sleep("You walk back out to the field.")
+    select_path()
     return weapon
+    
 
 
 def play_again():    
