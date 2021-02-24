@@ -1,32 +1,8 @@
 import time
 import random
+import enemies
+import weapons
 
-
-class Enemy:
-    name = str
-    defense = int
-
-    def __init__(self, name, defense):
-        self.name = name
-        self.defense = defense
-
-class Weapon:
-    name = str
-    strength = int
-
-    def __init__(self, name, strength):
-        self.name = name
-        self.strength = strength
-
-
-DRAGON = Enemy('dragon', 1200)
-TROLL = Enemy('troll', 1050)
-FAIRE = Enemy('wicked fairie', 950)
-GORGON = Enemy('gorgon', 850)
-DAGGER = Weapon('dagger', 9)
-MAGIC_SWORD = Weapon('magical Sword of Orgoroth', 15)
-
-ENEMIES = [DRAGON, TROLL, FAIRE, GORGON]
 
 def intro(enemy: Enemy):
     print_sleep("You find yourself standing in an open field, filled with grass and yellow wildflowers.")
