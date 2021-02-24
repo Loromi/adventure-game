@@ -38,12 +38,11 @@ def intro(enemy: Enemy):
 
 def print_sleep(message_to_print):
     print(message_to_print)
-    time.sleep(1/20)
+    time.sleep(3/2)
 
 
 def fight(enemy: Enemy, weapon: Weapon):
     attack = random.randint(80, 120) * weapon.strength
-    print(str(attack))
     if attack <= enemy.defense:
         print_sleep("You do your best...")
         print_sleep(f"but your {weapon.name} is no match for the {enemy.name}.")
@@ -53,6 +52,7 @@ def fight(enemy: Enemy, weapon: Weapon):
         print_sleep(f"The {weapon.name} shines brightly in your hand as you brace yourself for the attack.")
         print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
         print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
+    play_again()
 
 
 def select_path(enemy: Enemy, weapon: Weapon):
@@ -81,7 +81,7 @@ def cave(enemy: Enemy, weapon: Weapon):
     if weapon == MAGIC_SWORD:
         print_sleep("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
     else:
-        find_sword(weapon)    
+        weapon = find_sword(weapon)    
     print_sleep("You walk back out to the field.")
     select_path(enemy, weapon)
 
@@ -131,7 +131,6 @@ def main():
 
         intro(enemy)
         select_path(enemy, weapon)
-        play_again()
         break
 
 
