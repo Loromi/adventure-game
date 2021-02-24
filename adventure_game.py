@@ -131,7 +131,6 @@ def main():
         intro(enemy)
         select_path(enemy, weapon)
         play_again()
-        break
 
 
 if __name__ == '__main__':
