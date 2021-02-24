@@ -1,7 +1,17 @@
 import time
 import random
-import enemies
-import weapons
+from enemies import Enemy
+from weapons import Weapon
+
+DRAGON = Enemy('dragon', 1200)
+TROLL = Enemy('troll', 1050)
+FAIRE = Enemy('wicked fairie', 950)
+GORGON = Enemy('gorgon', 850)
+
+ENEMIES = [DRAGON, TROLL, FAIRE, GORGON]
+
+DAGGER = Weapon('dagger', 9)
+MAGIC_SWORD = Weapon('magical Sword of Orgoroth', 15)
 
 
 def intro(enemy: Enemy):
@@ -14,7 +24,7 @@ def intro(enemy: Enemy):
 
 def print_sleep(message_to_print):
     print(message_to_print)
-    time.sleep(3/2)
+    time.sleep(3/20)
 
 
 def fight(enemy: Enemy, weapon: Weapon):
@@ -28,7 +38,7 @@ def fight(enemy: Enemy, weapon: Weapon):
         print_sleep(f"The {weapon.name} shines brightly in your hand as you brace yourself for the attack.")
         print_sleep(f"But the {enemy.name} takes one look at your shiny new toy and runs away!")
         print_sleep(f"You have rid the town of the {enemy.name}. You are victorious!")
-    play_again()
+    print_sleep("\nGAME OVER!")
 
 
 def select_path(enemy: Enemy, weapon: Weapon):
@@ -42,7 +52,7 @@ def select_path(enemy: Enemy, weapon: Weapon):
         elif path == '2':
             cave(enemy, weapon)
             break
-
+    
 
 def doorknock(enemy: Enemy, weapon: Weapon):
     print_sleep("You approach the door of the house.")
@@ -74,7 +84,7 @@ def find_sword(weapon: Weapon):
 
 def play_again():    
     while True:
-        again = input("Would you like to play again? (y/n)")
+        again = input("\nWould you like to play again? (y/n)")
         if again == 'n':
             print_sleep("Thanks for playing! See you next time.")
             break
@@ -91,7 +101,7 @@ def strength_check(weapon: Weapon):
 def meet_enemy(enemy: Enemy, weapon: Weapon):
     strength_check(weapon)
     while True:
-        enemy_encounter = input("Would you like to (1) fight or (2) run away?")
+        enemy_encounter = input("\nWould you like to (1) fight or (2) run away?")
         if enemy_encounter == '1':
             fight(enemy, weapon)
             break
@@ -107,6 +117,7 @@ def main():
 
         intro(enemy)
         select_path(enemy, weapon)
+        play_again()
         break
 
 
