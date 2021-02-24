@@ -98,7 +98,7 @@ def play_again():
         again = input("\nWould you like to play again? (y/n)")
         if again == 'n':
             print_sleep("Thanks for playing! See you next time.")
-            break
+            exit()
         elif again == 'y':
             main()
 
