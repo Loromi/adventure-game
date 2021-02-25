@@ -16,36 +16,36 @@ MAGIC_SWORD = Weapon('magical Sword of Orgoroth', 15)
 
 def intro(enemy: Enemy):
     print_sleep("You find yourself standing in an open field, filled "
-                + "with grass and yellow wildflowers.")
+                "with grass and yellow wildflowers.")
     print_sleep(f"Rumor has it that a {enemy.name} is somewhere around "
-                + "here, and has been terrifying the nearby village.")
+                "here, and has been terrifying the nearby village.", 2)
     print_sleep("In front of you is a house.")
     print_sleep("To your right is a dark cave.")
     print_sleep("In your hand you hold your trusty "
-                + "(but not very effective) dagger.")
+                "(but not very effective) dagger.")
 
 
-def print_sleep(message_to_print):
+def print_sleep(message_to_print, seconds = (3/2)):
     print(message_to_print)
-    time.sleep(3/2)
+    time.sleep(seconds)
 
 
 def fight(enemy: Enemy, weapon: Weapon):
     attack = random.randint(80, 120) * weapon.strength
     if attack <= enemy.defense:
-        print_sleep("You do your best...")
+        print_sleep("You do your best...", (5/2))
         print_sleep(f"but your {weapon.name} is no match for the "
-                    + f"{enemy.name}.")
+                    f"{enemy.name}.")
         print_sleep("You have been defeated!")
     elif attack > enemy.defense:
         print_sleep(f"As the {enemy.name} moves to attack, you unsheath "
-                    + f"your {weapon.name}.")
+                    f"your {weapon.name}.")
         print_sleep(f"The {weapon.name} shines brightly in your hand as you"
-                    + " brace yourself for the attack.")
+                    " brace yourself for the attack.")
         print_sleep(f"But the {enemy.name} takes one look at your shiny new "
-                    + "toy and runs away!")
+                    "toy and runs away!")
         print_sleep(f"You have rid the town of the {enemy.name}"
-                    + ". You are victorious!")
+                    ". You are victorious!")
     print_sleep("\nGAME OVER!")
 
 
@@ -65,17 +65,17 @@ def select_path(enemy: Enemy, weapon: Weapon):
 def doorknock(enemy: Enemy, weapon: Weapon):
     print_sleep("You approach the door of the house.")
     print_sleep("You are about to knock when the door opens and out steps a "
-                + f"{enemy.name}")
+                f"{enemy.name}")
     print_sleep(f"Eep! This is the {enemy.name}'s house!")
     print_sleep(f"The {enemy.name} attacks you!")
     meet_enemy(enemy, weapon)
 
 
 def cave(enemy: Enemy, weapon: Weapon):
-    print_sleep("You peer cautiously into the cave.")
+    print_sleep("You peer cautiously into the cave.", (5/2))
     if weapon == MAGIC_SWORD:
         print_sleep("You've been here before, and gotten all the good stuff."
-                    + " It's just an empty cave now.")
+                    " It's just an empty cave now.")
     else:
         weapon = find_sword(weapon)
     print_sleep("You walk back out to the field.")
@@ -88,7 +88,7 @@ def find_sword(weapon: Weapon):
         print_sleep("Your eye catches a glint of metal behind a rock.")
         print_sleep("You have found the magical Sword of Ogoroth!")
         print_sleep("You discard your silly old dagger and take the "
-                    + "sword with you.")
+                    "sword with you.")
         weapon = MAGIC_SWORD
     return weapon
 
@@ -113,24 +113,23 @@ def meet_enemy(enemy: Enemy, weapon: Weapon):
     strength_check(weapon)
     while True:
         enemy_encounter = input("\nWould you like to (1) fight or "
-                                + "(2) run away?")
+                                "(2) run away?")
         if enemy_encounter == '1':
             fight(enemy, weapon)
             break
         elif enemy_encounter == '2':
             print_sleep("You run back into the field. Luckily, you don't seem "
-                        + "to have been followed.")
+                        "to have been followed.")
             select_path(enemy, weapon)
 
 
 def main():
-    while True:
-        enemy = random.choice(ENEMIES)
-        weapon = DAGGER
+    enemy = random.choice(ENEMIES)
+    weapon = DAGGER
 
-        intro(enemy)
-        select_path(enemy, weapon)
-        play_again()
+    intro(enemy)
+    select_path(enemy, weapon)
+    play_again()
 
 
 if __name__ == '__main__':
